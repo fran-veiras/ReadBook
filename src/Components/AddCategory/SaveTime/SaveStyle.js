@@ -7,9 +7,10 @@ export const Container = styled.div`
     right: 0px;
     top: 0px;
     background: rgba(0, 0, 0, 0.40);
-    display: ${({newCategory}) => (newCategory ? 'flex' : 'none')};
+    display: ${({save}) => (save ? 'flex' : 'none')};
     justify-content: center;
     align-items: center;
+    z-index: 9999;
 `
 
 export const Request = styled.div`
@@ -63,4 +64,21 @@ export const Accept = styled.a`
     margin-left: 1rem;
 `
 
+export const Select = styled.select`
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+    background-color: transparent;      
+    width: 180px;
+    height: 20px;
+    cursor: pointer;
+    outline: none;
 
+    &::-ms-expand {
+        display: none;
+    }
+`
+
+export const Option = styled.option`
+
+`

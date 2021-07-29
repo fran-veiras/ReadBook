@@ -39,6 +39,7 @@ export const Stop = styled.a`
     width: 30%;
     margin: 1rem auto;
     cursor: pointer;
+    border-radius: 5px;
     display: ${({ timeOn }) => (timeOn ? 'block' : 'none')};
 `
 

@@ -26,6 +26,16 @@ export const Timer = () => {
 
     const [resume, setResume] = useState("Start")
 
+    // timer save
+
+    const [save, setSave] = useState(false)
+
+    const toggleSave = () => {
+        if (save === false || save === true) {
+            setSave(!save)
+        }
+    }
+
     return (
         <Contain>
         <title>
@@ -42,10 +52,10 @@ export const Timer = () => {
             </TimerCircle>
             <Start className="button" timeOn={timeOn} onClick={() => setTimeOn(true)}>{resume}</Start>
             <Stop className="button2" timeOn={timeOn} onClick={() => setTimeOn(false)}>Stop</Stop>
-            <Save className="button3">Save</Save>
-            <Reset onClick={() => {setTime(0); setResume("start"); setTimeOn(false)}}>Restart</Reset>
+            <Save onClick={toggleSave} className="button3">Save</Save>
+            <Reset onClick={() => {setTime(0); setResume("Start"); setTimeOn(false)}}>Restart</Reset>
         </Container>
-        <AddCategory/>
+        <AddCategory toggleSave={toggleSave} save={save} time={time}/>
         </ Contain>
     )
 }
