@@ -24,6 +24,8 @@ export const PopUp = ({newCategory, toggler, setCategories}) => {
         }
     }
 
+    // key
+
     return (
         <Container newCategory={newCategory}>
             <Request>
@@ -35,7 +37,7 @@ export const PopUp = ({newCategory, toggler, setCategories}) => {
                     value={inputValue}
                     onChange={inputChange}
                     />
-                    <Title>Description:</Title>
+                    <Title>Author:</Title>
                     <Name 
                     type="text" 
                     placeholder="complete here.."
