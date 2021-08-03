@@ -25,7 +25,13 @@ export const TableHead = styled.thead`
 `
 
 export const Tr = styled.tr`
+    
+`
 
+export const TrFolder = styled.tr`
+    background: #FFC87B;
+    display: ${({ open }) => (open ? 'table-row' : 'none')};
+    padding-right: 12px;
 `
 
 export const Th = styled.th`
@@ -46,4 +52,6 @@ export const Td = styled.td`
     padding: 10px;
     border-bottom: 2px solid #F5F5F5;
 `
+export const Count = styled.p`
 
+`

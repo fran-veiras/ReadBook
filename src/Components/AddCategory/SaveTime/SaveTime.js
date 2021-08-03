@@ -7,7 +7,7 @@ export const SaveTime = ({toggleSave, save, categories, setCycle, time}) => {
 
     const handleSubmit = (e) => {
         if (categorieCycle.length > 2) {
-            setCycle(val => [...val, inputValue, categorieCycle, time])
+            setCycle(val => [...val, [inputValue, categorieCycle, time]])
             
             setInputValue('')
             toggleSave()

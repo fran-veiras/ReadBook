@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useState} from 'react';
 import { Title,
         Container,
         Table,
@@ -7,6 +7,8 @@ import { Title,
         Th,
         Tbody,
         Td,
+        Count,
+        TrFolder
         } from './FolderStyle';
 
 export const TableFoulders = ({categories, cycle}) => {
@@ -14,7 +16,7 @@ export const TableFoulders = ({categories, cycle}) => {
     const folders = categories.map(cat => {
         return {
             name: cat[0],
-            description: cat[1]
+            description: cat[1],
         }
     })
 
@@ -22,11 +24,19 @@ export const TableFoulders = ({categories, cycle}) => {
         return {
             description: cy[0],
             folder: cy[1],
-            time: cy[2]
+            time: cy[2],
         }
     })
 
-    console.log(info);
+    const [open, setOpen] = useState(false)
+
+    const openFolder = () => {
+        if (open === false) {
+            setOpen(!false)
+        }else {
+            setOpen(!true)
+        }
+    }
     
     return (
         <Container>
@@ -41,17 +51,21 @@ export const TableFoulders = ({categories, cycle}) => {
             {
                 folders.map(cat => (  
                     <Tbody key={cat.name}>
-                        <Tr>
+                        <Tr onClick={openFolder}>
                             <Td>{cat.name}</Td>
                             <Td>{cat.description}</Td>
                         </Tr>
                         {
-                            info.map(cy => (
-                                <Tr>
+                            info.filter(cy => cy.folder === cat.name).map(cy => 
+                                <TrFolder key={cy.folder} open={open}>
                                     <Td>{cy.description}</Td>
-                                    <Td>{cy.time}</Td>
-                                </Tr>
-                            ))
+                                    <Td>
+                                        <Count>{("0" + Math.floor((cy.time / 3600000) % 60)).slice(-2)}:</Count>
+                                        <Count>{("0" + Math.floor((cy.time / 60000) % 60)).slice(-2)}:</Count>
+                                        <Count>{("0" + Math.floor((cy.time/ 1000) % 60)).slice(-2)}</Count>
+                                    </Td>
+                                </TrFolder>
+                            )
                         }
                     </Tbody>
                 ))
