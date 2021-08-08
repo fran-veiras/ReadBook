@@ -22,6 +22,7 @@ export const SaveTime = ({toggleSave, save, categories, setCycle, time}) => {
         setInputValue(e.target.value)
     };
 
+    // get pages
     
     // get categorie value
 
