@@ -7,9 +7,10 @@ export const SaveTime = ({toggleSave, save, categories, setCycle, time}) => {
 
     const handleSubmit = (e) => {
         if (categorieCycle.length > 2) {
-            setCycle(val => [...val, [inputValue, categorieCycle, time]])
+            setCycle(val => [...val, [inputValue, categorieCycle, time, pages]])
             
             setInputValue('')
+            setPages('')
             toggleSave()
         }
     }
@@ -23,6 +24,12 @@ export const SaveTime = ({toggleSave, save, categories, setCycle, time}) => {
     };
 
     // get pages
+
+    const [pages, setPages] = useState([''])
+
+    const pagesChange = (e) => {
+        setPages(e.target.value)
+    };
     
     // get categorie value
 
@@ -44,6 +51,14 @@ export const SaveTime = ({toggleSave, save, categories, setCycle, time}) => {
                         placeholder="complete here.."
                         value={inputValue}
                         onChange={inputChange}
+                        />
+                        <Name
+                        placeholder="Ej: 1, 3, 15, 30 etc."
+                        type="number"
+                        min="1" 
+                        max="200"
+                        value={pages}
+                        onChange={pagesChange}
                         />
                         <Title>Choose a book folder</Title>
                         <Select value={categorieCycle} onChange={handleChange}>

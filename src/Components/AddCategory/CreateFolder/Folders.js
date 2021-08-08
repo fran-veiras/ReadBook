@@ -27,6 +27,7 @@ export const Folders = ({ categorie, catDescription, info }) => {
                         <Tr onClick={openFolder}>
                             <Td>{categorie}</Td>
                             <Td>{catDescription}</Td>
+                            <Td></Td>
                         </Tr>
                         {
                             info.filter(cy => cy.folder === categorie).map(cy => 
@@ -37,6 +38,7 @@ export const Folders = ({ categorie, catDescription, info }) => {
                                         <Count>{("0" + Math.floor((cy.time / 60000) % 60)).slice(-2)}:</Count>
                                         <Count>{("0" + Math.floor((cy.time/ 1000) % 60)).slice(-2)}</Count>
                                     </Td>
+                                    <Td>{cy.pages} Pages</Td>
                                 </TrFolder>
                             )
                         }

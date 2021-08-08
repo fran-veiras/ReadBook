@@ -30,6 +30,7 @@ export const Title = styled.h3`
 export const Name = styled.input`
     border: 0; 
     padding: 7px 0;
+    margin-right: 1rem;
     width: 30%;
     border-bottom: 1px solid #ccc;
     &:focus {

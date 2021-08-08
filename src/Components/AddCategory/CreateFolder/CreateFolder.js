@@ -22,6 +22,7 @@ export const TableFoulders = ({categories, cycle}) => {
             description: cy[0],
             folder: cy[1],
             time: cy[2],
+            pages: cy[3]
         }
     })
     
